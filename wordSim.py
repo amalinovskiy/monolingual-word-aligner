@@ -41,7 +41,7 @@ def wordRelatednessAlignment(word1, word2, config):
     elif synonymDictionary.checkSynonymByLemma(word1.lemma, word2.lemma) and 'synonyms' in config.selected_lexical_resources:
         lexSim = config.synonym
 
-    elif presentInPPDB(canonical_word1, canonical_word2) and 'paraphrase' in config.selected_lexical_resources:
+    elif presentInPPDB(canonical_word1, canonical_word2) and 'paraphrases' in config.selected_lexical_resources:
         lexSim = config.paraphrase
 
     elif ((not functionWord(word1.form) and not functionWord(word2.form)) or word1.pos[0] == word2.pos[0]) and cosineSimilarity(word1.form, word2.form) > config.related_threshold and 'distributional' in config.selected_lexical_resources:
